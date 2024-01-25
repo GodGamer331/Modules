@@ -1,0 +1,194 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+* {
+    margin: 0;
+    padding-left: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #000;
+    border-radius: 10px;
+}
+
+body {
+    min-height: 100vh;
+    background-color: rgb(34, 34, 34);
+    padding-top: 0;
+    padding-left: 10px;
+    color: #fff;
+}
+
+.web {
+    position:relative;
+    padding-top: 80px;
+    padding-left: 210px;
+    padding-right: 20px;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 50px;
+    background-color: rgb(20,20,20);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    z-index: 500;
+    top: 0;
+    bottom: 0;
+}
+
+.navbar a {
+    position: relative;
+    font-size: 18px;
+    color: #fff;
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 25px;
+}
+
+.navbar a::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #fff;
+    transition: 0.3s;
+}
+
+.navbar a:hover:before {
+    width: 100%;
+}
+
+.sidebar {
+    z-index: 150;
+    position:fixed;
+    top: 46px;
+    left: 0;
+    width: 200px;
+    height: calc(100% - 46px);
+    padding-top: 0px;
+    background: rgb(20,20,20);
+}
+
+.sidebar header {
+    line-height: 20px;
+    font-size: 20px;
+    font-weight: 700;
+    text-align:left;
+}
+
+.web .codeblock .language-lua {
+    background-color: rgb(20,20,20);
+    border-radius: 5px;
+    font-weight: 500;
+    position: relative;
+}
+
+.web .codeblock {
+    padding-top: 13px;
+    padding-bottom: 12px;
+    font-family: "Poppins", sans-serif;
+}
+
+.link {
+   color: #fff;
+   text-decoration: underline;
+}
+
+.sidebar .side .subcat {
+    font-size: 14px;
+    color: rgb(255,255,255);
+    margin-left: 10px;
+    font-weight: 300;
+}
+
+.sidebar .side .ssubcat {
+    font-size: 14px;
+    color: rgb(255,255,255);
+    margin-left: 20px;
+    font-weight: 300;
+}
+
+.sidebar .side a {
+    position:relative;
+    font-size: 16px;
+    top: 10px;
+    font-weight: 500;
+    color: #fff;
+    text-decoration: none;
+}
+
+.sidebar .side a::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #a569ff;
+    transition: 0.5s;
+}
+
+.sidebar .side a:hover:before {
+    width: 100%;
+}
+
+.side {
+    z-index: 100;
+    top: 80px;
+    bottom: 0;
+    overflow:auto;
+    margin-left: 10px;
+    position: fixed;
+}
+
+.web .tag-limit {
+    background-color: #00468c;
+    font-size: 16px;
+    margin-left: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 20px;
+}
+
+.web .tag-yields {
+    background-color: #c28421;
+    font-size: 16px;
+    margin-left: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 20px;
+}
+
+.web .tag-deprecated {
+    background-color: #8a1a1a;
+    font-size: 16px;
+    margin-left: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 20px;
+}
+
+.web .tag-wip {
+    background-color: #a569ff;
+    font-size: 16px;
+    margin-left: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 20px;
+}
