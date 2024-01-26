@@ -8,12 +8,10 @@
 <body>
     <h1>api</h1>
     <script>
-        console.log("Accessing")
         const Http = new XMLHttpRequest();
         const url='http://78.108.218.34:25517/modules';
         Http.open("GET", url);
         Http.send();
-        console.log(Http.status)
         Http.onreadystatechange = function(){
             if (this.readyState == 4 && this.status == 200){
                 console.log(this.responseText)
