@@ -1,8 +1,8 @@
-import express from 'express'
-import routes from './api/routes/route'
-// const express = require("express")
+// import express from 'express'
+// import routes from './api/routes/route'
+const express = require("express")
 const app = express()
-// const routes = require('./api/routes/route')
+const routes = require('./api/routes/route')
 
 app.use('/modules', routes)
 
