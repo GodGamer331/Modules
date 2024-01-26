@@ -1,22 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modules API</title>
-</head>
-<body>
-    <h1>api</h1>
-    <script>
-        const Http = new XMLHttpRequest();
-        const url='https://theadmin.sparkedservers.us/modules';
-        Http.open("GET", url);
-        Http.send();
-        Http.onreadystatechange = function(){
-            if (this.readyState == 4 && this.status == 200){
-                console.log(this.responseText)
-            }
-        }
-    </script>
-</body>
-</html>
+<script>
+const Http = new XMLHttpRequest();
+const url='https://theadmin.sparkedservers.us/modules';
+Http.open("GET", url);
+Http.send();
+Http.onreadystatechange = function(){
+    if (this.readyState == 4 && this.status == 200){
+        console.log(this.responseText)
+    }
+}
+</script>
