@@ -18,7 +18,7 @@
 
             <nav class="navbar">
                 <a href="#">Back to Top</a>
-                <a href="#">Contact</a>
+                <a href="#contact">Contact</a>
                 <!--<a href="#">idk</a>
                 <a href="#">idk 2</a>-->
             </nav>
@@ -49,16 +49,16 @@
                 <a href="#sent" class="ssubcat">Sent</a><br>
 
                 <a href="#simpleutils">Simple Utils</a><br>
-                <a href="#simpleutils" class="subcat">ConvertTime</a><br>
-                <a href="#simpleutils" class="subcat">Gates</a><br>
-                <a href="#simpleutils" class="subcat">GetDescendantsOfClass</a><br>
-                <a href="#simpleutils" class="subcat">GetPath</a><br>
-                <a href="#simpleutils" class="subcat">Invert</a><br>
-                <a href="#simpleutils" class="subcat">Reverse</a><br>
-                <a href="#simpleutils" class="subcat">Round</a><br>
-                <a href="#simpleutils" class="subcat">Shuffle</a><br>
-                <a href="#simpleutils" class="subcat">Sort</a><br>
-                <a href="#simpleutils" class="subcat">Transform</a><br>
+                <a href="#converttime" class="subcat">ConvertTime</a><br>
+                <a href="#gates" class="subcat">Gates</a><br>
+                <a href="#getdescendantsofclass" class="subcat">GetDescendantsOfClass</a><br>
+                <a href="#getpath" class="subcat">GetPath</a><br>
+                <a href="#invert" class="subcat">Invert</a><br>
+                <a href="#reverse" class="subcat">Reverse</a><br>
+                <a href="#round" class="subcat">Round</a><br>
+                <a href="#shuffle" class="subcat">Shuffle</a><br>
+                <a href="#sort" class="subcat">Sort</a><br>
+                <a href="#transform" class="subcat">Transform</a><br>
             </div>
             
            
@@ -78,7 +78,7 @@ local NewWebhook = WebhookAPI.new()
 NewWebhook:Send(WebhookURL)
                 </code>
             </pre>
-
+<hr>
 <h2>Base functions</h2>
 <br><br><h3 id="new">.new()</h3>
 This is to create a new Webhook object.
@@ -88,7 +88,7 @@ local WebhookAPI = require(script.Parent)
 
 local NewWebhook = WebhookAPI.new()
 </code></pre>
-
+<hr>
 <h3 id="addembed"><br><br><a class="tag-limit">25 LIMIT</a><br>:AddEmbed()</h3>
 This function is used to create a embed within the webhook.
 <br><b>Example</b>
@@ -97,8 +97,8 @@ local WebhookAPI = require(script.Parent)
     
 local NewWebhook = WebhookAPI.new()
 NewWebhook:AddEmbed()
-    </code></pre>
-
+</code></pre>
+<hr>
 <h3 id="removeembed"><br><br>:RemoveEmbed(EmbedNumber: number)</h3>
 This function removes a embed from the embed list if it exists.
 <br><b>Example</b>
@@ -110,8 +110,8 @@ NewWebhook:AddEmbed()
 NewWebhook:AddEmbed()
 
 NewWebhook:RemoveEmbed(1)   --> the 2nd embed will be put into the 1st position after.
-    </code></pre>
-
+</code></pre>
+<hr>
 <h3 id="addfield"><br><br><a class="tag-limit">25 LIMIT</a><br>:AddField(EmbedNumber: number, name: string, value: string, inline: string)</h3>
 This function allows you to add up to NUMBER fields to your embed.
 <br><b>Example</b>
@@ -135,7 +135,7 @@ end
         </code></pre>
 Outcome:<br>
 <img src="./images/field.png" alt="Embed Field Example" width="332" height="147">
-
+<hr>
 <h3 id="setdescription"><br><br>:SetDescription(EmbedNumber: number, Text: string)</h3>
 This function allows you to change the description of said embed, as well as use hyper links.
 <br><b>Example</b>
@@ -157,7 +157,7 @@ end
         </code></pre>
 Outcome:<br>
 <img src="./images/description.png", width="333", height="166">
-
+<hr>
 <h3 id="setauthor"><br><br>:SetAuthor(EmbedNumber: number, Name: string, Avatar_url: string)</h3>
 This function sets the author, which is at the very top of the embed.
 <br><b>Example</b>
@@ -182,7 +182,7 @@ end
         </code></pre>
 Outcome:<br>
 <img src="./images/author.png" width="327" height="206">
-
+<hr>
 <h3 id="settitle"><br><br>:SetTitle(EmbedNumber: number, text: string)</h3>
 This function allows you to set the title of the embed, which sits right below the author.
 <br><b>Example</b>
@@ -205,7 +205,7 @@ end
         </code></pre>
 Outcome:<br>
 <img src="./images/title.png", width="327" height="239">
-
+<hr>
 <h3 id="setfooter"><br><br>:SetFooter(EmbedNumber: number, text: string, avatar_url: string)</h3>
 Sets the footer of the embed, which is at the very bottom.
 <br><b>Example</b>
@@ -228,7 +228,7 @@ end
         </code></pre>
 Outcome:<br>
 <img src="./images/footer.png">
-
+<hr>
 <h3 id="setcolor"><br><br>:SetColor(EmbedNumber: number, color: Color3)</h3>
 This allows you to set a color for your embed, which is shown on the left side.
 <br><b>Example</b>
@@ -251,7 +251,7 @@ end
         </code></pre>
 Outcome:<br>
 <img src="./images/color.png" width="323" height="281">
-
+<hr>
 <h3 id="setthumbnail"><br><br>:SetThumbnail(EmbedNumber: number, thumbnail_url: Color3)</h3>
 This allows you to set a thumbnail image. It is located at the top right corner.
 <br><b>Example</b>
@@ -274,7 +274,7 @@ end
         </code></pre>
 Outcome:<br>
 <img src="./images/thumbnail.png" width="449" height="280">
-
+<hr>
 <h3 id="getwebhookdata"><br><br>:GetWebhookData()</h3>
 This function returns the data of the webhook as it sends it.
 <br><b>Example</b>
@@ -299,7 +299,7 @@ end
         </code></pre>
 Outcome:<br>
 <img src="./images/getwebhookdata.png" width="918" height="662">
-
+<hr>
 <h3 id="setmessage"><br><br>:SetMessage(content: string)</h3>
 This function sets the message content of the embed.
 <br><b>Example</b>
@@ -324,7 +324,7 @@ end
         </code></pre>
 Outcome:<br>
 <img src="./images/message.png" width="448" height="312">
-
+<hr>
 <h3 id="setprofile"><br><br>:SetProfile(Username: string, Avatar_url: string)</h3>
 This function sets the webhooks name and avatar.
 <br><b>Example</b>
@@ -350,7 +350,7 @@ end
 Outcome:<br>
 <img src="./images/profile.png" width="438" height="306">
 
-<br><br><br><h2>Events</h2>
+<hr><br><br><h2 id="events">Events</h2>
 <br><br><h3 id="changed">.Changed</h3>
 This event fires any time a change is made to the webhook.
 <h4>:Connect(function(...))</h4><br>
@@ -381,7 +381,7 @@ if not success then
     warn(err)
 end
 </code></pre>
-
+<hr>
 <br><h3 id="sent">.Sent</h3>
 This event is fired when you send a webhook.
 <h4>:Connect(function(WebhookData: {}))</h4><br>
@@ -412,11 +412,109 @@ if not success then
 end
 </code></pre>
 
-
-<h1 id="simpleutils">Simple Utils       <a class="tag-wip">WORK IN PROGRESS</a></h1>
+<hr>
+<h1 id="simpleutils">Simple Utils</h1>
 This module aims to house a lot of helpful functions.<br>
 You can download the module <a href="./Downloadable/SimpleUtils.rbxm" class="link">here</a>.<br>
 Module Version: v1.1.0
+
+<h3>Requiring the module</h3>
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local Utils = require(YourPathHere) -- You can require the entire module
+local Invert = require(Utils.Invert) -- or you can require the functions alone.
+</code></pre>
+<hr>
+<h2>Base Functions</h2>
+<br><br>
+<h3 id="converttime">.ConvertTime(Seconds: number)</h3>
+This function allows you to put seconds into minutes:seconds (00:00 format).
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local Utils = require(YourPathHere)
+local Seconds = 85
+
+print(Utils.ConvertTime(Seconds))   --> "01:25"
+</code></pre>
+<hr>
+<br><br><h3 id="gates">Gates</h3>
+This function includes several logic gates you may use as well as :GetTruthTable();
+<h4>AND | OR | XOR | NAND | NOR | XNOR</h4>
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local Utils = require(YourPathHere)
+
+local TruthTable = Util.Gates:GetTruthTable()
+print(TruthTable)       --> All inputs, and outputs for the gates.
+
+print(Utils.Gates.OR(true, false))   --> true
+</code></pre>
+<hr>
+<br><br><h3 id="getdescendantsofclass">.GetDescendantsOfClass(Ancestor: Instance, Class: ClassName?)</h3>
+This functions gets all descendants of Ancestor which have the ClassName <code>Class</code>.
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local Utils = require(YourPathHere)
+
+local Descendants = Utils.GetDescendantsOfClass(workspace, "Sound")
+print(Descendants)      --> {Instance}
+</code></pre>
+<hr>
+<br><br><h3 id="getpath">.GetPath(Base: Instance)</h3>
+This function returns the entire path leading up to that instance as a string.
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local Utils = require(YourPathHere)
+local Part = game.Workspace.Part
+
+print(Utils.GetPath(Part))      --> "game.Workspace.Part"
+</code></pre>
+<hr>
+<br><br><h3 id="invert">.Invert(Num: number)</h3>
+This function inverts any number, 0 will always return 0.
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local Utils = require(YourPathHere)
+
+print(Utils.Invert(123), Utils.Invert(-456), Utils.Invert(0), Utils.Invert("789"), Utils.Invert("A"))   --> -123, 456, 0, -789, nil
+</code></pre>
+<hr>
+<br><br><h3 id="reverse">.Reverse(Thing: number | string)</h3>
+This function will reverse any number or string.
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local Utils = require(YourPathHere)
+
+print(Utils.Reverse(123), Utils.Reverse(-987), Utils.Reverse("Hello"))   --> 321, -789, "olleH"
+</code></pre>
+<hr>
+<br><br><h3 id="round">.Round(Num: number, Decimal: number)</h3>
+This function will round the number down to the nearest digits.
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local Utils = require(YourPathHere)
+
+print(Utils.Round(23.587, 2), Utils.Round(2587.159753, 4), Utils.Round("Abc 12.157", 2))   --> 23.58, 2587.1597, nil
+</code></pre>
+<hr>
+<br><br><h3 id="shuffle">.Shuffle(T: {number | string | {. . .}})</h3>
+This function will shuffle the table randomly.
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local Utils = require(YourPathHere)
+local Table = {1, 5, 7, 8, 11, 15}
+
+print(Utils.Shuffle(Table))   --> {7, 5, 15, 1, 11, 8}
+</code></pre>
+<hr>
+<br><br><h3 id="sort">.Sort(ToSort: {number}, SortBy: string)</h3>
+This table will sort numbers to be in order.
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local Utils = require(YourPathHere)
+
+print(Utils.Sort({1, 88, 5, 51, 28, 15}, "htl"), Utils.Sort({1, 88, 5, 51, 28, 15}, "lth"))   --> {88, 51, 28, 15, 5, 1}, {1, 5, 15, 28, 51, 88}
+</code></pre>
+<hr>
+<br><br><h3 id="transform">.Transform(ToTransform: number | string)</h3>
+This function will return a number in more readable way.
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local Utils = require(YourPathHere)
+
+print(Utils.Transform(123456789), Utils.Transform("54678"))   --> "123,456,789", "54,678"
+</code></pre>
+
+            <footer id="contact">All modules made by @godgamer331 (Discord) GodGamer331 (Roblox)</footer>
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
         <script>
