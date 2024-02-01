@@ -59,6 +59,7 @@
                 <a href="#shuffle" class="subcat">Shuffle</a><br>
                 <a href="#sort" class="subcat">Sort</a><br>
                 <a href="#transform" class="subcat">Transform</a><br>
+                <a href="#signal" class="subcat">Signal</a><br>
             </div>
             
            
@@ -416,7 +417,7 @@ end
 <h1 id="simpleutils">Simple Utils</h1>
 This module aims to house a lot of helpful functions.<br>
 You can download the module <a href="./Downloadable/SimpleUtils.rbxm" class="link">here</a>.<br>
-Module Version: v1.1.0
+Module Version: v1.2.0
 
 <h3>Requiring the module</h3>
 <pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
@@ -513,13 +514,32 @@ local Utils = require(YourPathHere)
 
 print(Utils.Transform(123456789), Utils.Transform("54678"))   --> "123,456,789", "54,678"
 </code></pre>
+<hr>
+<br><br><h3 id="signal">.Signal. ...</h3>
+This set of functions allows you to create a custom RBXScriptSignal object.<br>
+Its best used within other modules for events.<br>
+The module has 2 main sub functions, and all the RBXScriptSignal functions (:Connect, :Once, :Wait, . . .).<br>
+.new()  -> Creates a new RBXScriptSignal.<br>
+:fire(Anything) -> Fires all the functions connected to the event.
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local Utils = require(YourPathHere)
 
-            <footer id="contact">All modules made by @godgamer331 (Discord) GodGamer331 (Roblox)</footer>
+local CustomSignal = Utils.Signal.new()
+
+CustomSignal:Connect(function(...)
+    local Received = {...}
+    print(Received)     --> {...any}
+end)
+
+CustomSignal:fire("Any amount of arguments here.", true, game.Workspace.Part)
+
+</code></pre>
+
+            <footer id="contact">All modules made by @godgamer331 (Discord) GodGamer331 (Roblox). Please make sure we share a server, or you have your DMs open. I will not accept random friend requests.</footer>
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
         <script>
             hljs.highlightAll();
         </script>
     </body>
-    
 </html>
