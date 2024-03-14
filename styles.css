@@ -37,7 +37,7 @@ body {
     left: 0;
     width: 100%;
     padding: 10px 50px;
-    background-color: rgb(20,20,20);
+    background-color: #141414;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -48,6 +48,38 @@ body {
     z-index: 500;
     top: 0;
     bottom: 0;
+}
+
+.hoverable {
+    color: white;
+    border: none;
+}
+
+.modules {
+    position: relative;
+    display: inline-block;
+}
+
+.items {
+    display: none;
+    position: absolute;
+    background-color: #141414;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 101;
+}
+
+.item {
+    color: black;
+    padding: 12px 16px;
+    font-size: 10px;
+    text-decoration: none;
+    display: block;
+}
+
+.modules:hover .items {
+    display: block;
+    margin-top: 2px;
 }
 
 .navbar a {
@@ -77,7 +109,7 @@ body {
 .sidebar {
     z-index: 150;
     position:fixed;
-    top: 46px;
+    top: 65px;
     left: 0;
     width: 200px;
     height: calc(100% - 46px);
@@ -202,5 +234,18 @@ hr {
 footer {
     color: #36393f;
     font-size: 14px;
-    margin-top: 55px;
+    
+    position: fixed;
+}
+
+.contactlist {
+    margin-left: 32%;
+    margin-top: 20%;
+}
+
+.linkimg {
+    position: relative;
+    margin-left: 5px;
+    color: #fff;
+    text-decoration: underline;
 }

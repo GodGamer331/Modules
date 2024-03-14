@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--<a class="tag-yields">YIELDS</a><a class="tag-deprecated">DEPRECATED</a>-->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" type="x-icon" href="./images/logo.png">
+        <title>Modules - Webhook API</title>
+
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+        
+        <header class="header">
+            <img src="./images/logo.png" width="50px" height="50px" class="logo">
+            <a href="#" class="logo"></a>
+
+            <nav class="navbar">
+                <a href="#">Back to Top</a>
+                <div class="modules">
+                    <a href="./modules.html" class="hoverable">Modules</a>
+                    <div class="items">
+                        <a class="item" href="./WebhookAPI.html">Webhook API</a>
+                        <a class="item" href="./SimpleUtils.html">Simple Utils</a>
+                    </div>
+                </div>
+                <a href="./contact.html">Contact</a>
+                <a href="./home.html">Home</a>
+
+                <!--<a href="#">idk</a>
+                <a href="#">idk 2</a>-->
+            </nav>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+            
+        </header>
+        <nav class="sidebar">
+            <div class="side">
+                <header>
+                    <h4>Modules</h4>
+                </header>
+                <a href="#webhookapi">Webhook API</a><br>
+                <a href="#new" class="subcat">new</a><br>
+                <a href="#addembed" class="subcat">AddEmbed</a><br>
+                <a href="#removeembed" class="subcat">RemoveEmbed</a><br>
+                <a href="#addfield" class="subcat">AddField</a><br>
+                <a href="#setdescription" class="subcat">SetDescription</a><br>
+                <a href="#setauthor" class="subcat">SetAuthor</a><br>
+                <a href="#settitle" class="subcat">SetTitle</a><br>
+                <a href="#setfooter" class="subcat">SetFooter</a><br>
+                <a href="#setcolor" class="subcat">SetColor</a><br>
+                <a href="#setthumbnail" class="subcat">SetThumbnail</a><br>
+                <a href="#getwebhookdata" class="subcat">GetWebhookData</a><br>
+                <a href="#setmessage" class="subcat">SetMessage</a><br>
+                <a href="#setprofile" class="subcat">SetProfile</a><br>
+                <a href="#events" class="subcat"><b>Events</b></a><br>
+                <a href="#changed" class="ssubcat">Changed</a><br>
+                <a href="#sent" class="ssubcat">Sent</a><br>
+            </div>
+            
+           
+        </nav>
+        <div class="web">
+            <h1 id="webhookapi">Roblox -> Discord Webhook API</h1>
+            <pre style="tab-size: 4;" class="codeblock">
+This module aims to make making webhooks to discord easy and customizable.
+Download the module <a href="./Downloadable/WebhookAPI.rbxm" class="link">here</a>.
+Module Version: v1.0.0-a
+
+<h3>Requiring the module and sending webhook:</h3>
+                <code class="language-lua">
+local WebhookAPI = require(script.Parent) --Your directory here.
+local NewWebhook = WebhookAPI.new()
+-- ...
+NewWebhook:Send(WebhookURL)
+                </code>
+            </pre>
+<hr>
+<h2>Base functions</h2>
+<br><br><h3 id="new">.new()</h3>
+This is to create a new Webhook object.
+<br><b>Example</b>
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local WebhookAPI = require(script.Parent)
+
+local NewWebhook = WebhookAPI.new()
+</code></pre>
+<hr>
+<h3 id="addembed"><br><br><a class="tag-limit">25 LIMIT</a><br>:AddEmbed()</h3>
+This function is used to create a embed within the webhook.
+<br><b>Example</b>
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local WebhookAPI = require(script.Parent)
+    
+local NewWebhook = WebhookAPI.new()
+NewWebhook:AddEmbed()
+</code></pre>
+<hr>
+<h3 id="removeembed"><br><br>:RemoveEmbed(EmbedNumber: number)</h3>
+This function removes a embed from the embed list if it exists.
+<br><b>Example</b>
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local WebhookAPI = require(script.Parent)
+    
+local NewWebhook = WebhookAPI.new()
+NewWebhook:AddEmbed()
+NewWebhook:AddEmbed()
+
+NewWebhook:RemoveEmbed(1)   --> the 2nd embed will be put into the 1st position after.
+</code></pre>
+<hr>
+<h3 id="addfield"><br><br><a class="tag-limit">25 LIMIT</a><br>:AddField(EmbedNumber: number, name: string, value: string, inline: string)</h3>
+This function allows you to add up to NUMBER fields to your embed.
+<br><b>Example</b>
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local WebhookAPI = require(script.Parent)
+    
+local NewWebhook = WebhookAPI.new()
+
+local FieldName = "Field Name!"
+local FieldValue = "Value!"
+local inline = false    -- Optional, can be nil.
+local EmbedNumber = nil -- Can be nil, or any number.
+
+NewWebhook:AddEmbed()
+NewWebhook:AddField(EmbedNumber, FieldName, FieldValue, inline)
+local success,err = NewWebhook:Send(WebhookURL)
+
+if not success then
+    warn(err)
+end
+        </code></pre>
+Outcome:<br>
+<img src="./images/field.png" alt="Embed Field Example" width="332" height="147">
+<hr>
+<h3 id="setdescription"><br><br>:SetDescription(EmbedNumber: number, Text: string)</h3>
+This function allows you to change the description of said embed, as well as use hyper links.
+<br><b>Example</b>
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local WebhookAPI = require(script.Parent)
+    
+local NewWebhook = WebhookAPI.new()
+
+--. . .
+
+NewWebhook:AddEmbed()
+--. . .
+NewWebhook:SetDescription(nil, "This is just a description!")
+local success,err = NewWebhook:Send(WebhookURL)
+
+if not success then
+    warn(err)
+end
+        </code></pre>
+Outcome:<br>
+<img src="./images/description.png", width="333", height="166">
+<hr>
+<h3 id="setauthor"><br><br>:SetAuthor(EmbedNumber: number, Name: string, Avatar_url: string)</h3>
+This function sets the author, which is at the very top of the embed.
+<br><b>Example</b>
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local WebhookAPI = require(script.Parent)
+    
+local NewWebhook = WebhookAPI.new()
+
+--. . .
+
+local avatar_url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd-1PwCVQptnQcktkXKCE5_ZtA0e1qmb5ZDPRC8NLy4t7BuDjYGzeQYPzNAXQVn1p8cVQ&usqp=CAU"
+
+NewWebhook:AddEmbed()
+--. . .
+NewWebhook:SetAuthor(nil, "I'm a Author!", avatar_url)
+
+local success,err = NewWebhook:Send(WebhookURL)
+
+if not success then
+    warn(err)
+end
+        </code></pre>
+Outcome:<br>
+<img src="./images/author.png" width="327" height="206">
+<hr>
+<h3 id="settitle"><br><br>:SetTitle(EmbedNumber: number, text: string)</h3>
+This function allows you to set the title of the embed, which sits right below the author.
+<br><b>Example</b>
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local WebhookAPI = require(script.Parent)
+    
+local NewWebhook = WebhookAPI.new()
+
+--. . .
+
+NewWebhook:AddEmbed()
+--. . .
+NewWebhook:SetTitle(nil, "And I'm the Title!")
+
+local success,err = NewWebhook:Send(WebhookURL)
+
+if not success then
+    warn(err)
+end
+        </code></pre>
+Outcome:<br>
+<img src="./images/title.png", width="327" height="239">
+<hr>
+<h3 id="setfooter"><br><br>:SetFooter(EmbedNumber: number, text: string, avatar_url: string)</h3>
+Sets the footer of the embed, which is at the very bottom.
+<br><b>Example</b>
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local WebhookAPI = require(script.Parent)
+    
+local NewWebhook = WebhookAPI.new()
+
+--. . .
+
+NewWebhook:AddEmbed()
+--. . .
+NewWebhook:SetFooter(nil, "I'm a footer!", avatar_url)
+
+local success,err = NewWebhook:Send(WebhookURL)
+
+if not success then
+    warn(err)
+end
+        </code></pre>
+Outcome:<br>
+<img src="./images/footer.png">
+<hr>
+<h3 id="setcolor"><br><br>:SetColor(EmbedNumber: number, color: Color3)</h3>
+This allows you to set a color for your embed, which is shown on the left side.
+<br><b>Example</b>
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local WebhookAPI = require(script.Parent)
+    
+local NewWebhook = WebhookAPI.new()
+
+--. . .
+
+NewWebhook:AddEmbed()
+--. . .
+NewWebhook:SetColor(nil, Color3.fromRGB(138, 26, 26))
+
+local success,err = NewWebhook:Send(WebhookURL)
+
+if not success then
+    warn(err)
+end
+        </code></pre>
+Outcome:<br>
+<img src="./images/color.png" width="323" height="281">
+<hr>
+<h3 id="setthumbnail"><br><br>:SetThumbnail(EmbedNumber: number, thumbnail_url: Color3)</h3>
+This allows you to set a thumbnail image. It is located at the top right corner.
+<br><b>Example</b>
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local WebhookAPI = require(script.Parent)
+    
+local NewWebhook = WebhookAPI.new()
+
+--. . .
+
+NewWebhook:AddEmbed()
+--. . .
+NewWebhook:SetThumbnail(nil, avatar_url)
+
+local success,err = NewWebhook:Send(WebhookURL)
+
+if not success then
+    warn(err)
+end
+        </code></pre>
+Outcome:<br>
+<img src="./images/thumbnail.png" width="449" height="280">
+<hr>
+<h3 id="getwebhookdata"><br><br>:GetWebhookData()</h3>
+This function returns the data of the webhook as it sends it.
+<br><b>Example</b>
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local WebhookAPI = require(script.Parent)
+    
+local NewWebhook = WebhookAPI.new()
+
+--. . .
+
+NewWebhook:AddEmbed()
+--. . .
+NewWebhook:SetThumbnail(nil, avatar_url)
+
+print(NewWebhook:GetWebhookData())              --> {. . .}
+
+local success,err = NewWebhook:Send(WebhookURL)
+
+if not success then
+    warn(err)
+end
+        </code></pre>
+Outcome:<br>
+<img src="./images/getwebhookdata.png" width="918" height="662">
+<hr>
+<h3 id="setmessage"><br><br>:SetMessage(content: string)</h3>
+This function sets the message content of the embed.
+<br><b>Example</b>
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local WebhookAPI = require(script.Parent)
+    
+local NewWebhook = WebhookAPI.new()
+
+--. . .
+
+NewWebhook:AddEmbed()
+--. . .
+NewWebhook:SetMessage("Just like a normal message!")
+
+--. . .
+
+local success,err = NewWebhook:Send(WebhookURL)
+
+if not success then
+    warn(err)
+end
+        </code></pre>
+Outcome:<br>
+<img src="./images/message.png" width="448" height="312">
+<hr>
+<h3 id="setprofile"><br><br>:SetProfile(Username: string, Avatar_url: string)</h3>
+This function sets the webhooks name and avatar.
+<br><b>Example</b>
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local WebhookAPI = require(script.Parent)
+    
+local NewWebhook = WebhookAPI.new()
+
+--. . .
+
+NewWebhook:AddEmbed()
+--. . .
+NewWebhook:SetProfile("Just a generic username.", avatar_url)
+
+--. . .
+
+local success,err = NewWebhook:Send(WebhookURL)
+
+if not success then
+    warn(err)
+end
+        </code></pre>
+Outcome:<br>
+<img src="./images/profile.png" width="438" height="306">
+
+<hr><br><br><h2 id="events">Events</h2>
+<br><br><h3 id="changed">.Changed</h3>
+This event fires any time a change is made to the webhook.
+<h4>:Connect(function(...))</h4><br>
+<h4>:Wait()     <a class="tag-yields">YIELDS</a></h4><br>
+<h4>:Once(function(...))</h4>
+<br><b>Example</b>
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local WebhookAPI = require(script.Parent)
+
+local NewWebhook = WebhookAPI.new()
+
+NewWebhook.Changed:Connect(function(...)
+    local T = {...} -- This is preffered way of using .Changed event as the amount of values vary.
+    print(#T)        --> X values
+end)
+
+--. . .
+
+NewWebhook:AddEmbed()
+--. . .
+
+
+--. . .
+NewWebhook.Changed:Wait()
+local success,err = NewWebhook:Send(WebhookURL)
+
+if not success then
+    warn(err)
+end
+</code></pre>
+<hr>
+<br><h3 id="sent">.Sent</h3>
+This event is fired when you send a webhook.
+<h4>:Connect(function(WebhookData: {}))</h4><br>
+<h4>:Wait()     <a class="tag-yields">YIELDS</a></h4><br>
+<h4>:Once(function(WebhookData: {}))</h4>
+<br><b>Example</b>
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local WebhookAPI = require(script.Parent)
+
+local NewWebhook = WebhookAPI.new()
+
+NewWebhook.Sent:Connect(function(Data)
+    print(Data)     --> {["embeds"] = {. . .}, . . .}
+end)
+
+--. . .
+
+NewWebhook:AddEmbed()
+--. . .
+
+
+--. . .
+NewWebhook.Changed:Wait()
+local success,err = NewWebhook:Send(WebhookURL)
+
+if not success then
+    warn(err)
+end
+</code></pre>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--<a class="tag-yields">YIELDS</a><a class="tag-deprecated">DEPRECATED</a>-->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" type="x-icon" href="./images/logo.png">
+        <title>Modules - Simple Utils</title>
+
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+        
+        <header class="header">
+            <img src="./images/logo.png" width="50px" height="50px" class="logo">
+            <a href="#" class="logo"></a>
+
+            <nav class="navbar">
+                <a href="#">Back to Top</a>
+                <div class="modules">
+                    <a href="./modules.html" class="hoverable">Modules</a>
+                    <div class="items">
+                        <a class="item" href="./WebhookAPI.html">Webhook API</a>
+                        <a class="item" href="./SimpleUtils.html">Simple Utils</a>
+                    </div>
+                </div>
+                <a href="./contact.html">Contact</a>
+                <a href="./home.html">Home</a>
+
+                <!--<a href="#">idk</a>
+                <a href="#">idk 2</a>-->
+            </nav>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+            
+        </header>
+        <nav class="sidebar">
+            <div class="side">
+                <header>
+                    <h4>Modules</h4>
+                </header>
+                <a href="#simpleutils">Simple Utils</a><br>
+                <a href="#converttime" class="subcat">ConvertTime</a><br>
+                <a href="#gates" class="subcat">Gates</a><br>
+                <a href="#getdescendantsofclass" class="subcat">GetDescendantsOfClass</a><br>
+                <a href="#getpath" class="subcat">GetPath</a><br>
+                <a href="#invert" class="subcat">Invert</a><br>
+                <a href="#reverse" class="subcat">Reverse</a><br>
+                <a href="#round" class="subcat">Round</a><br>
+                <a href="#shuffle" class="subcat">Shuffle</a><br>
+                <a href="#sort" class="subcat">Sort</a><br>
+                <a href="#transform" class="subcat">Transform</a><br>
+                <a href="#signal" class="subcat">Signal</a><br>
+            </div>
+            
+           
+        </nav>
+        <div class="web">
+            <h1 id="simpleutils">Simple Utils</h1>
+This module aims to house a lot of helpful functions.<br>
+You can download the module <a href="./Downloadable/SimpleUtils.rbxm" class="link">here</a>.<br>
+Module Version: v1.2.0
+
+<h3>Requiring the module</h3>
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local Utils = require(YourPathHere) -- You can require the entire module
+local Invert = require(Utils.Invert) -- or you can require the functions alone.
+</code></pre>
+<hr>
+<h2>Base Functions</h2>
+<br><br>
+<h3 id="converttime">.ConvertTime(Seconds: number)</h3>
+This function allows you to put seconds into minutes:seconds (00:00 format).
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local Utils = require(YourPathHere)
+local Seconds = 85
+
+print(Utils.ConvertTime(Seconds))   -> "01:25"
+</code></pre>
+<hr>
+<br><br><h3 id="gates">Gates</h3>
+This function includes several logic gates you may use as well as :GetTruthTable();
+<h4>AND | OR | XOR | NAND | NOR | XNOR</h4>
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local Utils = require(YourPathHere)
+
+local TruthTable = Util.Gates:GetTruthTable()
+print(TruthTable)       -> All inputs, and outputs for the gates.
+
+print(Utils.Gates.OR(true, false))   -> true
+</code></pre>
+<hr>
+<br><br><h3 id="getdescendantsofclass">.GetDescendantsOfClass(Ancestor: Instance, Class: ClassName?)</h3>
+This functions gets all descendants of Ancestor which have the ClassName <code>Class</code>.
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local Utils = require(YourPathHere)
+
+local Descendants = Utils.GetDescendantsOfClass(workspace, "Sound")
+print(Descendants)      -> {Instance}
+</code></pre>
+<hr>
+<br><br><h3 id="getpath">.GetPath(Base: Instance)</h3>
+This function returns the entire path leading up to that instance as a string.
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local Utils = require(YourPathHere)
+local Part = game.Workspace.Part
+
+print(Utils.GetPath(Part))      -> "game.Workspace.Part"
+</code></pre>
+<hr>
+<br><br><h3 id="invert">.Invert(Num: number)</h3>
+This function inverts any number, 0 will always return 0.
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local Utils = require(YourPathHere)
+
+print(Utils.Invert(123), Utils.Invert(-456), Utils.Invert(0), Utils.Invert("789"), Utils.Invert("A"))   -> -123, 456, 0, -789, nil
+</code></pre>
+<hr>
+<br><br><h3 id="reverse">.Reverse(Thing: number | string)</h3>
+This function will reverse any number or string.
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local Utils = require(YourPathHere)
+
+print(Utils.Reverse(123), Utils.Reverse(-987), Utils.Reverse("Hello"))   -> 321, -789, "olleH"
+</code></pre>
+<hr>
+<br><br><h3 id="round">.Round(Num: number, Decimal: number)</h3>
+This function will round the number down to the nearest digits.
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local Utils = require(YourPathHere)
+
+print(Utils.Round(23.587, 2), Utils.Round(2587.159753, 4), Utils.Round("Abc 12.157", 2))   -> 23.58, 2587.1597, nil
+</code></pre>
+<hr>
+<br><br><h3 id="shuffle">.Shuffle(T: {number | string | {. . .}})</h3>
+This function will shuffle the table randomly.
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local Utils = require(YourPathHere)
+local Table = {1, 5, 7, 8, 11, 15}
+
+print(Utils.Shuffle(Table))   -> {7, 5, 15, 1, 11, 8}
+</code></pre>
+<hr>
+<br><br><h3 id="sort">.Sort(ToSort: {number}, SortBy: string)</h3>
+This table will sort numbers to be in order.
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local Utils = require(YourPathHere)
+
+print(Utils.Sort({1, 88, 5, 51, 28, 15}, "htl"), Utils.Sort({1, 88, 5, 51, 28, 15}, "lth"))   -> {88, 51, 28, 15, 5, 1}, {1, 5, 15, 28, 51, 88}
+</code></pre>
+<hr>
+<br><br><h3 id="transform">.Transform(ToTransform: number | string)</h3>
+This function will return a number in more readable way.
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local Utils = require(YourPathHere)
+
+print(Utils.Transform(123456789), Utils.Transform("54678"))   -> "123,456,789", "54,678"
+</code></pre>
+<hr>
+<br><br><h3 id="signal">.Signal. ...</h3>
+This set of functions allows you to create a custom RBXScriptSignal object.<br>
+Its best used within other modules for events.<br>
+The module has 2 main sub functions, and all the RBXScriptSignal functions (:Connect, :Once, :Wait, . . .).<br>
+.new()  -> Creates a new RBXScriptSignal.<br>
+:fire(Anything) -> Fires all the functions connected to the event.
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local Utils = require(YourPathHere)
+
+local CustomSignal = Utils.Signal.new()
+
+CustomSignal:Connect(function(...)
+    local Received = {...}
+    print(Received)    -> {...any}
+end)
+
+CustomSignal:fire("Any amount of arguments here.", true, game.Workspace.Part)
+
+</code></pre>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>
