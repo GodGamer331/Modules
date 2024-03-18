@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--<a class="tag-yields">YIELDS</a><a class="tag-deprecated">DEPRECATED</a>-->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" type="x-icon" href="./images/logo.png">
+        <title>Modules - Discord API</title>
+
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+        
+        <header class="header">
+            <img src="./images/logo.png" width="50px" height="50px" class="logo">
+            <a href="#" class="logo"></a>
+
+            <nav class="navbar">
+                <a href="#">Back to Top</a>
+                <div class="modules">
+                    <a href="./modules.html" class="hoverable">Modules</a>
+                    <div class="items">
+                        <a class="item" href="./WebhookAPI.html">Webhook API</a>
+                        <a class="item" href="./SimpleUtils.html">Simple Utils</a>
+                        <a class="item" href="./DiscordAPI.html">Discord API</a>
+                    </div>
+                </div>
+                <a href="./contact.html">Contact</a>
+                <a href="./home.html">Home</a>
+
+                <!--<a href="#">idk</a>
+                <a href="#">idk 2</a>-->
+            </nav>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+            
+        </header>
+        <nav class="sidebar">
+            <div class="side">
+                <header>
+                    <h4>Modules</h4>
+                </header>
+                <a href="#discordapi">Discord API</a><br>
+                <a href="#getmemberslist" class="subcat">GetMembersList</a><br>
+                <a href="#getmember" class="subcat">GetMember</a><br>
+                <a href="#getroles" class="subcat">GetRoles</a><br>
+                <a href="#getchannellist" class="subcat">GetChannelList</a><br>
+                <a href="#getchannel" class="subcat">GetChannel</a><br>
+                <a href="#sendmessage" class="subcat">SendMessage</a><br>
+                <a href="#editmessage" class="subcat">EditMessage</a><br>
+                <a href="#deletemessage" class="subcat">DeleteMessage</a><br>
+                <a href="#getmessages" class="subcat">GetMessages</a><br>
+            </div>
+            
+           
+        </nav>
+        <div class="web">
+            <h1 id="discordapi">Discord API</h1>
+This module helps you to communicate with discord easier. It can read member info, channel info and guild info. You need to know your server ID and your bot's token.<br>
+You can download the module <a href="./Downloadable/DiscordAPI.rbxm" class="link">here</a>.<br>
+Module Version: v1.0.0-a
+
+<h3>Requiring the module</h3>
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local Discord = require(Path_to_module)
+</code></pre>
+<hr>
+<h2>Base Functions</h2>
+<br><a class="tag-yields">YIELDS</a><br>
+<h3 id="getmemberslist">:GetMembersList(Limit: number)</h3>
+This function returns a table of all server members.
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local Discord = require(Path_to_module)
+
+local Members = Discord:GetMembersList(3)
+print(Members)      --> {[1] = {. . .}, [2] = {. . .}, . . .}
+</code></pre>
+<hr>
+<br><br><h3 id="getmember">:GetMember(Username: string, Limit: number)</h3>
+This function allows you to search for a discord user using either their nickname or their global name.
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local Discord = require(Path_to_module)
+
+local Member = Discord:GetMember("username", 1)
+print(Member)   --> {[1] = {. . .}}
+</code></pre>
+<hr>
+<br><a class="tag-yields">YIELDS</a><br><h3 id="getroles">:GetRoles()</h3>
+This functions returns a table with roles their IDs and other information.
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local Discord = require(Path_to_module)
+
+local Roles = Discord:GetRoles()
+print(Roles)    --> {[1] = {. . .}, [2] = {. . .}, . . .}
+</code></pre>
+<hr>
+<br><a class="tag-yields">YIELDS</a><br><h3 id="getchannellist">:GetChannelList()</h3>
+This function returns all channels in a server in table form.
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local Discord = require(Path_to_module)
+
+local Channels = Discord:GetChannelList()
+print(Channels)     --> {[1] = {. . .}, . . ., [50] = {. . .}}
+</code></pre>
+<hr>
+<br><br><h3 id="getchannel">:GetChannel(ChannelID: string)</h3>
+This function returns the data of the channel.
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local Discord = require(Path_to_module)
+
+local Channel = Discord:GetChannel("123456789")
+print(Channel)  --> {. . .}
+</code></pre>
+<hr>
+<br><br><h3 id="sendmessage">:SendMessage(ChannelID: string, Message: string)</h3>
+This function returns three values: boolean, errorMessage (if any) and MessageData such as its ID.
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local Discord = require(Path_to_module)
+
+local success, err, data = Discord:SendMessage("123456789", "This is just a message.")
+if not success then warn(err) end
+print(data)     --> {id = ". . .", type = . . ., content: "This is just a message.", . . .}
+</code></pre>
+<hr>
+<br><br><h3 id="editmessage">:EditMessage(ChannelID: string, MessageID: string, Data: {content: string, embeds: {. . .}})</h3>
+This function will edit the message and will return three values, boolean, errorMessage (if any) and MessageData.
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local Discord = require(Path_to_module)
+
+local success, err, data = Discord:EditMessage("123456789", "987654321", {content = "A new message!", embeds = nil})
+if not success then warn(err) end
+print(data)     --> {. . .}
+</code></pre>
+<hr>
+<br><br><h3 id="deletemessage">:DeleteMessage(ChannelID: string, MessageID: string)</h3>
+This function will delete the message by its ID. It returns only two values: boolean and string.
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local Discord = require(Path_to_module)
+
+local success, err = Discord:DeleteMessage("123456789", "987654321")
+if not success then warn(err) end
+</code></pre>
+<hr>
+<br><a class="tag-yields">YIELDS</a><br><h3 id="getmessages">:GetMessages(ChannelID: string, Options: {around: snowflake, before: snowflake, after: snowflake, limit: number})</h3>
+This function will get all messages in a channel depending on the 4 options.
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+local Discord = require(Path_to_module)
+
+local Messages = Discord:GetMessages("123456789", {after = DateTime.fromLocalTime(2021, 11, 13, 0, 0, 0, 0000), limit = 10})
+print(Messages)     --> {[1] = {. . .}, . . ., [10] = {. . .}}
+</code></pre>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>
