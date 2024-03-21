@@ -66,7 +66,7 @@ local Discord = require(Path_to_module)
 </code></pre>
 <hr>
 <h2>Base Functions</h2>
-<br><a class="tag-yields">YIELDS</a><br>
+<br><br>
 <h3 id="getmemberslist">:GetMembersList(Limit: number)</h3>
 This function returns a table of all server members.
 <pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
@@ -76,7 +76,7 @@ local Members = Discord:GetMembersList(3)
 print(Members)      --> {[1] = {. . .}, [2] = {. . .}, . . .}
 </code></pre>
 <hr>
-<br><br><h3 id="getmember">:GetMember(Username: string, Limit: number)</h3>
+<br><a class="tag-yields">YIELDS</a><br><h3 id="getmember">:GetMember(Username: string, Limit: number)</h3>
 This function allows you to search for a discord user using either their nickname or their global name.
 <pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
 local Discord = require(Path_to_module)
@@ -85,7 +85,7 @@ local Member = Discord:GetMember("username", 1)
 print(Member)   --> {[1] = {. . .}}
 </code></pre>
 <hr>
-<br><a class="tag-yields">YIELDS</a><br><h3 id="getroles">:GetRoles()</h3>
+<br><br><h3 id="getroles">:GetRoles()</h3>
 This functions returns a table with roles their IDs and other information.
 <pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
 local Discord = require(Path_to_module)
@@ -94,7 +94,7 @@ local Roles = Discord:GetRoles()
 print(Roles)    --> {[1] = {. . .}, [2] = {. . .}, . . .}
 </code></pre>
 <hr>
-<br><a class="tag-yields">YIELDS</a><br><h3 id="getchannellist">:GetChannelList()</h3>
+<br><br><h3 id="getchannellist">:GetChannelList()</h3>
 This function returns all channels in a server in table form.
 <pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
 local Discord = require(Path_to_module)
