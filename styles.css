@@ -192,7 +192,6 @@ body {
 .web .tag-limit {
     background-color: #00468c;
     font-size: 16px;
-    margin-left: 10px;
     padding-left: 10px;
     padding-right: 10px;
     border-radius: 20px;
@@ -201,6 +200,7 @@ body {
 .web .tag-yields {
     background-color: #c28421;
     font-size: 16px;
+    padding-left: 10px;
     padding-right: 10px;
     border-radius: 20px;
 }
@@ -208,7 +208,6 @@ body {
 .web .tag-deprecated {
     background-color: #8a1a1a;
     font-size: 16px;
-    margin-left: 10px;
     padding-left: 10px;
     padding-right: 10px;
     border-radius: 20px;
@@ -217,7 +216,6 @@ body {
 .web .tag-wip {
     background-color: #a569ff;
     font-size: 16px;
-    margin-left: 10px;
     padding-left: 10px;
     padding-right: 10px;
     border-radius: 20px;
