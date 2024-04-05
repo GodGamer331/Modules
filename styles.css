@@ -131,9 +131,10 @@ body {
     position: relative;
 }
 
-.web .codeblock {
+.codeblock {
+    border-radius: 8px;
     padding-top: 13px;
-    padding-bottom: 12px;
+    padding-bottom: 13px;
     font-family: "Poppins", sans-serif;
 }
 
@@ -248,4 +249,29 @@ footer {
     margin-left: 5px;
     color: #fff;
     text-decoration: underline;
+}
+
+.version {
+    background-color: #00468c;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 8px;
+}
+.version-release {
+    background-color: #247a0f;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 8px;
+}
+.version-latest {
+    background-color: #d4a303;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 8px;
+}
+.version-alpha {
+    background-color: #0372d4;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 8px;
 }

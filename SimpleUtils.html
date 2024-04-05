@@ -43,7 +43,7 @@
                 <a href="#simpleutils">Simple Utils</a><br>
                 <a href="#converttime" class="subcat">ConvertTime</a><br>
                 <a href="#gates" class="subcat">Gates</a><br>
-                <a href="#getdescendantsofclass" class="subcat">GetDescendantsOfClass</a><br>
+                <a href="#getdescendantsof" class="subcat">GetDescendantsOf</a><br>
                 <a href="#getpath" class="subcat">GetPath</a><br>
                 <a href="#invert" class="subcat">Invert</a><br>
                 <a href="#reverse" class="subcat">Reverse</a><br>
@@ -60,7 +60,7 @@
             <h1 id="simpleutils">Simple Utils</h1>
 This module aims to house a lot of helpful functions.<br>
 You can download the module <a href="./Downloadable/SimpleUtils.rbxm" class="link">here</a>.<br>
-Module Version: v1.2.0
+Module Version: v1.2.1
 
 <h3>Requiring the module</h3>
 <pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
@@ -91,13 +91,14 @@ print(TruthTable)       -> All inputs, and outputs for the gates.
 print(Utils.Gates.OR(true, false))   -> true
 </code></pre>
 <hr>
-<br><br><h3 id="getdescendantsofclass">.GetDescendantsOfClass(Ancestor: Instance, Class: ClassName?)</h3>
-This functions gets all descendants of Ancestor which have the ClassName <code>Class</code>.
+<br><br><h3 id="getdescendantsof">.GetDescendantsOf.</h3>
+This function has two sub functions: .Class(Ancestor: Instance, Class: ClassName?) and .Name(Ancestor: Instance, Name: string).
 <pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
 local Utils = require(YourPathHere)
 
-local Descendants = Utils.GetDescendantsOfClass(workspace, "Sound")
-print(Descendants)      -> {Instance}
+local Sounds = Utils.GetDescendantsOf.Class(workspace, "Sound")
+local Instances = Utils.GetDescendantsOf.Name(workspace, "Border")
+print(Sounds, Instances)      -> {Instance}, {Instance}
 </code></pre>
 <hr>
 <br><br><h3 id="getpath">.GetPath(Base: Instance)</h3>
