@@ -63,6 +63,7 @@ You can download the module <a href="./Downloadable/SimpleUtils.rbxm" class="lin
 Module Version: v1.2.1
 
 <h3>Requiring the module</h3>
+
 <pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
 local Utils = require(YourPathHere) -- You can require the entire module
 local Invert = require(Utils.Invert) -- or you can require the functions alone.
@@ -70,8 +71,22 @@ local Invert = require(Utils.Invert) -- or you can require the functions alone.
 <hr>
 <h2>Base Functions</h2>
 <br><br>
-<h3 id="converttime">.ConvertTime(Seconds: number)</h3>
+<h3 id="converttime">.ConvertTime(Seconds)</h3>
 This function allows you to put seconds into minutes:seconds (00:00 format).
+<table>
+    <tr>
+        <th>Key</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Default</th>
+    </tr>
+    <tr>
+        <td>Seconds</td>
+        <td>number</td>
+        <td>true</td>
+        <td>nil</td>
+    </tr>
+</table>
 <pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
 local Utils = require(YourPathHere)
 local Seconds = 85
@@ -92,7 +107,33 @@ print(Utils.Gates.OR(true, false))   -> true
 </code></pre>
 <hr>
 <br><br><h3 id="getdescendantsof">.GetDescendantsOf.</h3>
-This function has two sub functions: .Class(Ancestor: Instance, Class: ClassName?) and .Name(Ancestor: Instance, Name: string).
+This function has two sub functions: .Class(Ancestor, Class) and .Name(Ancestor, Name).
+<table>
+    <tr>
+        <th>Key</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Default</th>
+    </tr>
+    <tr>
+        <td>Ancestor</td>
+        <td>Instance</td>
+        <td>true</td>
+        <td>nil</td>
+    </tr>
+    <tr class="l">
+        <td>Class</td>
+        <td>string</td>
+        <td>true</td>
+        <td>nil</td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td>string</td>
+        <td>true</td>
+        <td>nil</td>
+    </tr>
+</table>
 <pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
 local Utils = require(YourPathHere)
 
@@ -101,8 +142,22 @@ local Instances = Utils.GetDescendantsOf.Name(workspace, "Border")
 print(Sounds, Instances)      -> {Instance}, {Instance}
 </code></pre>
 <hr>
-<br><br><h3 id="getpath">.GetPath(Base: Instance)</h3>
+<br><br><h3 id="getpath">.GetPath(Base)</h3>
 This function returns the entire path leading up to that instance as a string.
+<table>
+    <tr>
+        <th>Key</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Default</th>
+    </tr>
+    <tr>
+        <td>Base</td>
+        <td>Instance</td>
+        <td>true</td>
+        <td>nil</td>
+    </tr>
+</table>
 <pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
 local Utils = require(YourPathHere)
 local Part = game.Workspace.Part
@@ -110,32 +165,94 @@ local Part = game.Workspace.Part
 print(Utils.GetPath(Part))      -> "game.Workspace.Part"
 </code></pre>
 <hr>
-<br><br><h3 id="invert">.Invert(Num: number)</h3>
+<br><br><h3 id="invert">.Invert(Num)</h3>
 This function inverts any number, 0 will always return 0.
+<table>
+    <tr>
+        <th>Key</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Default</th>
+    </tr>
+    <tr>
+        <td>Num</td>
+        <td>number</td>
+        <td>true</td>
+        <td>nil</td>
+    </tr>
+</table>
 <pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
 local Utils = require(YourPathHere)
 
 print(Utils.Invert(123), Utils.Invert(-456), Utils.Invert(0), Utils.Invert("789"), Utils.Invert("A"))   -> -123, 456, 0, -789, nil
 </code></pre>
 <hr>
-<br><br><h3 id="reverse">.Reverse(Thing: number | string)</h3>
+<br><br><h3 id="reverse">.Reverse(Thing)</h3>
 This function will reverse any number or string.
+<table>
+    <tr>
+        <th>Key</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Default</th>
+    </tr>
+    <tr>
+        <td>Thing</td>
+        <td>number | string</td>
+        <td>true</td>
+        <td>nil</td>
+    </tr>
+</table>
 <pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
 local Utils = require(YourPathHere)
 
 print(Utils.Reverse(123), Utils.Reverse(-987), Utils.Reverse("Hello"))   -> 321, -789, "olleH"
 </code></pre>
 <hr>
-<br><br><h3 id="round">.Round(Num: number, Decimal: number)</h3>
+<br><br><h3 id="round">.Round(Num, Decimal)</h3>
 This function will round the number down to the nearest digits.
+<table>
+    <tr>
+        <th>Key</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Default</th>
+    </tr>
+    <tr>
+        <td>Num</td>
+        <td>number</td>
+        <td>true</td>
+        <td>nil</td>
+    </tr>
+    <tr class="l">
+        <td>Decimal</td>
+        <td>number</td>
+        <td>false</td>
+        <td>0</td>
+    </tr>
+</table>
 <pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
 local Utils = require(YourPathHere)
 
 print(Utils.Round(23.587, 2), Utils.Round(2587.159753, 4), Utils.Round("Abc 12.157", 2))   -> 23.58, 2587.1597, nil
 </code></pre>
 <hr>
-<br><br><h3 id="shuffle">.Shuffle(T: {number | string | {. . .}})</h3>
+<br><br><h3 id="shuffle">.Shuffle(T)</h3>
 This function will shuffle the table randomly.
+<table>
+    <tr>
+        <th>Key</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Default</th>
+    </tr>
+    <tr>
+        <td>T</td>
+        <td>table</td>
+        <td>true</td>
+        <td>nil</td>
+    </tr>
+</table>
 <pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
 local Utils = require(YourPathHere)
 local Table = {1, 5, 7, 8, 11, 15}
@@ -143,16 +260,50 @@ local Table = {1, 5, 7, 8, 11, 15}
 print(Utils.Shuffle(Table))   -> {7, 5, 15, 1, 11, 8}
 </code></pre>
 <hr>
-<br><br><h3 id="sort">.Sort(ToSort: {number}, SortBy: string)</h3>
+<br><br><h3 id="sort">.Sort(ToSort, SortBy)</h3>
 This table will sort numbers to be in order.
+<table>
+    <tr>
+        <th>Key</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Default</th>
+    </tr>
+    <tr>
+        <td>ToSort</td>
+        <td>table</td>
+        <td>true</td>
+        <td>nil</td>
+    </tr>
+    <tr class="l">
+        <td>SortBy</td>
+        <td>string</td>
+        <td>true</td>
+        <td>nil</td>
+    </tr>
+</table>
 <pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
 local Utils = require(YourPathHere)
 
 print(Utils.Sort({1, 88, 5, 51, 28, 15}, "htl"), Utils.Sort({1, 88, 5, 51, 28, 15}, "lth"))   -> {88, 51, 28, 15, 5, 1}, {1, 5, 15, 28, 51, 88}
 </code></pre>
 <hr>
-<br><br><h3 id="transform">.Transform(ToTransform: number | string)</h3>
+<br><br><h3 id="transform">.Transform(ToTransform)</h3>
 This function will return a number in more readable way.
+<table>
+    <tr>
+        <th>Key</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Default</th>
+    </tr>
+    <tr>
+        <td>ToTransform</td>
+        <td>number | string-type number</td>
+        <td>true</td>
+        <td>nil</td>
+    </tr>
+</table>
 <pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
 local Utils = require(YourPathHere)
 

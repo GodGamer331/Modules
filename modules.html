@@ -49,6 +49,8 @@
                 <a href="#su1.2.1" class="subcat">v1.2.1</a><br>
                 <a href="#discordapi">Discord API</a><br>
                 <a href="#dapi1.0.0-a" class="subcat">v1.0.0-a</a><br>
+                <a href="#dapi1.1.x-a" class="subcat">v1.1.x-a</a><br>
+                <a href="#dapix.x.x" class="subcat">vX.X.X</a><br>
             </div>
             
            
@@ -150,6 +152,27 @@
 + EditMessage function added.           Discord:EditMessage(ChannelID: string, MessageID: string, Data: {content: string, embeds: {any}})
 + DeleteMessage function added.         Discord:DeleteMessage(ChannelID: string, MessageID: string)
 + GetMessages function added.           Discord:GetMessages(ChannelID: string, Options: {around: snowflake?, before: snowflake?, after: snowflake?, limit: number})
+                    </code>
+                </pre>
+                <h2>Planned Features</h2>
+                <a class="version-planned" id="dapi1.1.x-a"><b>v1.1.x-a ALPHA | PLANNED</b></a> - Functionality update.
+                <pre style="tab-size: 4;" class="codeblock">
+                    <code class="language-diff">
++ Sub functions for stuff that returns object Ex: API:SendMessage(ChannelID, Message):Then(function(msg) msg:EditMessage(...) end)
++ More functions to add.
++   GetUser
++   GetScheduledEvent
++   CreateScheduledEvent
++
++ Compatibility with Webhook API.
+                    </code>
+                </pre>
+                <a class="version-planned" id="dapix.x.x"><b>vX.X.X RELEASE | PLANNED</b></a> - Events update.
+                <pre style="tab-size: 4;" class="codeblock">
+                    <code class="language-diff">
++ Working events for discord, such as MESSAGE_CREATE and READY
+- Currently impossible using roblox due to roblox not having any websocket API.
++ Probably could try making it through own API, might take a while.
                     </code>
                 </pre>
             </div>

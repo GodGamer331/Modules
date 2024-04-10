@@ -97,8 +97,22 @@ local NewWebhook = WebhookAPI.new()
 NewWebhook:AddEmbed()
 </code></pre>
 <hr>
-<h3 id="removeembed"><br><br>:RemoveEmbed(EmbedNumber: number)</h3>
+<h3 id="removeembed"><br><br>:RemoveEmbed(EmbedNumber)</h3>
 This function removes a embed from the embed list if it exists.
+<table>
+    <tr>
+        <th>Key</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Default</th>
+    </tr>
+    <tr>
+        <td>EmbedNumber</td>
+        <td>number</td>
+        <td>false</td>
+        <td>#Embeds</td>
+    </tr>
+</table>
 <br><b>Example</b>
 <pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
 local WebhookAPI = require(script.Parent)
@@ -110,8 +124,40 @@ NewWebhook:AddEmbed()
 NewWebhook:RemoveEmbed(1)   --> the 2nd embed will be put into the 1st position after.
 </code></pre>
 <hr>
-<h3 id="addfield"><br><br><a class="tag-limit">25 LIMIT</a><br>:AddField(EmbedNumber: number, name: string, value: string, inline: string)</h3>
+<h3 id="addfield"><br><br><a class="tag-limit">25 LIMIT</a><br>:AddField(EmbedNumber, name, value, inline)</h3>
 This function allows you to add up to NUMBER fields to your embed.
+<table>
+    <tr>
+        <th>Key</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Default</th>
+    </tr>
+    <tr>
+        <td>EmbedNumber</td>
+        <td>number</td>
+        <td>false</td>
+        <td>#Embeds</td>
+    </tr>
+    <tr class="l">
+        <td>name</td>
+        <td>string</td>
+        <td>true</td>
+        <td>nil</td>
+    </tr>
+    <tr>
+        <td>value</td>
+        <td>string</td>
+        <td>true</td>
+        <td>nil</td>
+    </tr>
+    <tr class="l">
+        <td>inline</td>
+        <td>boolean</td>
+        <td>false</td>
+        <td>false</td>
+    </tr>
+</table>
 <br><b>Example</b>
 <pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
 local WebhookAPI = require(script.Parent)
@@ -134,8 +180,28 @@ end
 Outcome:<br>
 <img src="./images/field.png" alt="Embed Field Example" width="332" height="147">
 <hr>
-<h3 id="setdescription"><br><br>:SetDescription(EmbedNumber: number, Text: string)</h3>
+<h3 id="setdescription"><br><br>:SetDescription(EmbedNumber, Text)</h3>
 This function allows you to change the description of said embed, as well as use hyper links.
+<table>
+    <tr>
+        <th>Key</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Default</th>
+    </tr>
+    <tr>
+        <td>EmbedNumber</td>
+        <td>number</td>
+        <td>false</td>
+        <td>#Embeds</td>
+    </tr>
+    <tr class="l">
+        <td>Text</td>
+        <td>string</td>
+        <td>true</td>
+        <td>nil</td>
+    </tr>
+</table>
 <br><b>Example</b>
 <pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
 local WebhookAPI = require(script.Parent)
@@ -156,8 +222,34 @@ end
 Outcome:<br>
 <img src="./images/description.png", width="333", height="166">
 <hr>
-<h3 id="setauthor"><br><br>:SetAuthor(EmbedNumber: number, Name: string, Avatar_url: string)</h3>
+<h3 id="setauthor"><br><br>:SetAuthor(EmbedNumber: number, Name, Avatar_url)</h3>
 This function sets the author, which is at the very top of the embed.
+<table>
+    <tr>
+        <th>Key</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Default</th>
+    </tr>
+    <tr>
+        <td>EmbedNumber</td>
+        <td>number</td>
+        <td>false</td>
+        <td>#Embeds</td>
+    </tr>
+    <tr class="l">
+        <td>Name</td>
+        <td>string</td>
+        <td>true</td>
+        <td>nil</td>
+    </tr>
+    <tr>
+        <td>Avatar_url</td>
+        <td>string</td>
+        <td>false</td>
+        <td>nil</td>
+    </tr>
+</table>
 <br><b>Example</b>
 <pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
 local WebhookAPI = require(script.Parent)
@@ -181,8 +273,28 @@ end
 Outcome:<br>
 <img src="./images/author.png" width="327" height="206">
 <hr>
-<h3 id="settitle"><br><br>:SetTitle(EmbedNumber: number, text: string)</h3>
+<h3 id="settitle"><br><br>:SetTitle(EmbedNumber, text)</h3>
 This function allows you to set the title of the embed, which sits right below the author.
+<table>
+    <tr>
+        <th>Key</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Default</th>
+    </tr>
+    <tr>
+        <td>EmbedNumber</td>
+        <td>number</td>
+        <td>false</td>
+        <td>#Embeds</td>
+    </tr>
+    <tr class="l">
+        <td>text</td>
+        <td>string</td>
+        <td>true</td>
+        <td>nil</td>
+    </tr>
+</table>
 <br><b>Example</b>
 <pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
 local WebhookAPI = require(script.Parent)
@@ -204,8 +316,34 @@ end
 Outcome:<br>
 <img src="./images/title.png", width="327" height="239">
 <hr>
-<h3 id="setfooter"><br><br>:SetFooter(EmbedNumber: number, text: string, avatar_url: string)</h3>
+<h3 id="setfooter"><br><br>:SetFooter(EmbedNumber, text, avatar_url)</h3>
 Sets the footer of the embed, which is at the very bottom.
+<table>
+    <tr>
+        <th>Key</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Default</th>
+    </tr>
+    <tr>
+        <td>EmbedNumber</td>
+        <td>number</td>
+        <td>false</td>
+        <td>#Embeds</td>
+    </tr>
+    <tr class="l">
+        <td>text</td>
+        <td>string</td>
+        <td>true</td>
+        <td>nil</td>
+    </tr>
+    <tr>
+        <td>avatar_url</td>
+        <td>string</td>
+        <td>false</td>
+        <td>nil</td>
+    </tr>
+</table>
 <br><b>Example</b>
 <pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
 local WebhookAPI = require(script.Parent)
@@ -229,6 +367,26 @@ Outcome:<br>
 <hr>
 <h3 id="setcolor"><br><br>:SetColor(EmbedNumber: number, color: Color3)</h3>
 This allows you to set a color for your embed, which is shown on the left side.
+<table>
+    <tr>
+        <th>Key</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Default</th>
+    </tr>
+    <tr>
+        <td>EmbedNumber</td>
+        <td>number</td>
+        <td>false</td>
+        <td>#Embeds</td>
+    </tr>
+    <tr class="l">
+        <td>color</td>
+        <td>Color3</td>
+        <td>true</td>
+        <td>nil</td>
+    </tr>
+</table>
 <br><b>Example</b>
 <pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
 local WebhookAPI = require(script.Parent)
@@ -250,8 +408,28 @@ end
 Outcome:<br>
 <img src="./images/color.png" width="323" height="281">
 <hr>
-<h3 id="setthumbnail"><br><br>:SetThumbnail(EmbedNumber: number, thumbnail_url: Color3)</h3>
+<h3 id="setthumbnail"><br><br>:SetThumbnail(EmbedNumber, thumbnail_url)</h3>
 This allows you to set a thumbnail image. It is located at the top right corner.
+<table>
+    <tr>
+        <th>Key</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Default</th>
+    </tr>
+    <tr>
+        <td>EmbedNumber</td>
+        <td>number</td>
+        <td>false</td>
+        <td>#Embeds</td>
+    </tr>
+    <tr class="l">
+        <td>thumbnail_url</td>
+        <td>string</td>
+        <td>true</td>
+        <td>nil</td>
+    </tr>
+</table>
 <br><b>Example</b>
 <pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
 local WebhookAPI = require(script.Parent)
@@ -298,8 +476,22 @@ end
 Outcome:<br>
 <img src="./images/getwebhookdata.png" width="918" height="662">
 <hr>
-<h3 id="setmessage"><br><br>:SetMessage(content: string)</h3>
+<h3 id="setmessage"><br><br>:SetMessage(content)</h3>
 This function sets the message content of the embed.
+<table>
+    <tr>
+        <th>Key</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Default</th>
+    </tr>
+    <tr>
+        <td>content</td>
+        <td>string</td>
+        <td>true</td>
+        <td>nil</td>
+    </tr>
+</table>
 <br><b>Example</b>
 <pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
 local WebhookAPI = require(script.Parent)
@@ -323,8 +515,28 @@ end
 Outcome:<br>
 <img src="./images/message.png" width="448" height="312">
 <hr>
-<h3 id="setprofile"><br><br>:SetProfile(Username: string, Avatar_url: string)</h3>
+<h3 id="setprofile"><br><br>:SetProfile(Username, Avatar_url)</h3>
 This function sets the webhooks name and avatar.
+<table>
+    <tr>
+        <th>Key</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Default</th>
+    </tr>
+    <tr>
+        <td>Username</td>
+        <td>string</td>
+        <td>true</td>
+        <td>nil</td>
+    </tr>
+    <tr class="l">
+        <td>Avatar_url</td>
+        <td>string</td>
+        <td>false</td>
+        <td>nil</td>
+    </tr>
+</table>
 <br><b>Example</b>
 <pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
 local WebhookAPI = require(script.Parent)
