@@ -50,6 +50,13 @@
                 <a href="#editmessage" class="subcat">EditMessage</a><br>
                 <a href="#deletemessage" class="subcat">DeleteMessage</a><br>
                 <a href="#getmessages" class="subcat">GetMessages</a><br>
+                <a href="#types">Types</a><br>
+                <a href="#embeddata", class="subcat">EmbedData</a><br>
+                <a href="#messagelistdata" class="subcat">MessageListData</a><br>
+                <a href="#roledata" class="subcat">RoleData</a><br>
+                <a href="#memberlistdata" class="subcat">MemberListData</a><br>
+                <a href="#channellistdata" class="subcat">ChannelListData</a><br>
+                <a href="#snowflake" class="subcat">snowflake</a><br>
             </div>
             
            
@@ -59,7 +66,7 @@
             <h1 id="discordapi">Discord API</h1>
 This module helps you to communicate with discord easier. It can read member info, channel info and guild info. You need to know your server ID and your bot's token. In the module you'll find three string values: Server ID, Bearer Token and Bot Token. Server ID must be filled, and then you can fill either Bearer or Bot Token.<br>
 <img src="./images/apilayout.png" width="169" height="116"><br>You can download the module <a href="./Downloadable/DiscordAPI.rbxm" class="link">here</a>.<br>
-Module Version: v1.0.0-a
+Module Version: <a class="ver">Version not loaded?</a>
 
 <h3>Requiring the module</h3>
 <pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
@@ -275,8 +282,6 @@ local success, err = Discord:DeleteMessage("123456789", "987654321")
 if not success then warn(err) end
 </code></pre>
 <hr>
-<br>
-<br>
 <h3 id="getmessages">:GetMessages(ChannelID, Options)</h3>
 This function will get all messages in a channel depending on the 4 options.
 <table>
@@ -337,10 +342,182 @@ local Discord = require(Path_to_module)
 local Messages = Discord:GetMessages("123456789", {after = DateTime.fromLocalTime(2021, 11, 13, 0, 0, 0, 0000), limit = 10})
 print(Messages)     --> {[1] = {. . .}, . . ., [10] = {. . .}}
 </code></pre>
+
+<hr>
+<h2 id="types">Types</h2>
+This section of the documentation will show all the types a function can return. Some are missing due to them being very similar to another mentioned.
+<br>
+<br>
+<h3 id="embeddata">EmbedData</h3>
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+type EmbedData = {
+    [number]: {
+        author: {
+            name: string,
+            icon_url: string
+        },
+        footer: {
+            text: string,
+            icon_url: string
+        },
+        image: {
+            url: string
+        },
+        thumbnail: {
+            url: string
+        },
+        fields: {
+            [number]: {
+                name: string,
+                value: string,
+                inline: boolean
+            }
+        },
+        color: number,
+        description: string,
+        title: string,
+        type: "rich"				-- Embed will ALWAYS be rich type
+    }
+}
+</code></pre>
+<hr>
+<br><br><h3 id="messagelistdata">MessageListData</h3>
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+type MessageListData = {
+    [number]: {
+        id: string,
+        type: number,
+        content: string,
+        channel_id: string,
+        author: {
+            id: string,
+            username: string,
+            avatar: string,
+            discriminator: string,
+            public_flags: number,
+            premium_type: number,
+            flags: number,
+            bot: boolean,
+            global_name: string,
+        },
+        attachments: {},
+        embeds: {
+            [number]: {
+                author: {
+                    name: string,
+                    icon_url: string
+                },
+                footer: {
+                    text: string,
+                    icon_url: string
+                },
+                image: {
+                    url: string
+                },
+                thumbnail: {
+                    url: string
+                },
+                fields: {
+                    [number]: {
+                        name: string,
+                        value: string,
+                        inline: boolean
+                    }
+                },
+                color: number,
+                description: string,
+                title: string,
+                type: "rich"
+            }
+        },
+        mentions: {},
+        mention_roles: {},
+        pinned: boolean,
+        mention_everyone: boolean,
+        tts: boolean,
+        timestamp: DateTime,
+        edited_timestamp: DateTime,
+        flags: number,
+        referenced_message: string?
+    }
+}
+</code></pre>
+<hr>
+<br><br><h3 id="roledata">RoleData</h3>
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+type RoleData = {
+    [number]: {
+        color: number,
+        flags: number,
+        hoist: boolean,
+        id: string,
+        managed: boolean,
+        mentionable: boolean,
+        name: string,
+        permissions: string,
+        position: number
+    }
+}
+</code></pre>
+<hr>
+<br><br><h3 id="memberlistdata">MemberListData</h3>
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+type MemberListData = {
+    [number]: {
+        deaf: boolean,
+        flags: number,
+        joined_at: DateTime,
+        mute: boolean,
+        pending: boolean,
+        roles: {
+            [number]: string
+        },
+        user: {
+            avatar: string,
+            bot: boolean,
+            discriminator: string,
+            flags: number,
+            id: string,
+            premium_type: number,
+            public_flags: number,
+            username: string
+        },
+        GetRoles: () -> RoleData
+    }
+}
+</code></pre>
+<hr>
+<br><br><h3 id="channellistdata">ChannelListData</h3>
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+type ChannelListData = {
+    [number]: {
+        flags: number,
+        guild_id: string,
+        id: string,
+        name: string,
+        permission_overwrites: {
+            [number]: {
+                allow: string,
+                deny: string,
+                id: string,
+                type: number
+            }
+        },
+        position: number,
+        type: number
+    }
+}
+</code></pre>
+<hr>
+<br><br><h3 id="snowflake">snowflake</h3>
+<pre style="tab-size: 4;" class="codeblock"><code class="language-lua">
+type snowflake = 'DateTime in milliseconds string format. Ex. DateTime.fromLocalTime(2021, 11, 13, 0, 0, 0, 0000)'
+</code></pre>
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
         <script>
             hljs.highlightAll();
         </script>
     </body>
+    <script src="./main.js"></script>
 </html>
