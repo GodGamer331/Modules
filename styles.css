@@ -300,11 +300,76 @@ th {
 
 table .l {
     padding-left: 10px;
-    padding-right: 10px;
+    
     background-color: rgb(20, 20, 20);
 }
 
 td {
     padding-left: 5px;
-    padding-right: 5px;
+}
+
+.web .contactlist .hovgt::before{
+    content: 'Post a issue or suggestion on github!';
+    clip-path:margin-box;
+    position: absolute;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    padding-bottom: 5px;
+    margin-left: 40.5%;
+    top: 71.3%;
+    left: 0;
+    width: 0%;
+    height: 20px;
+    background: #5873e2;
+    transition: 1s;
+}
+
+.web .contactlist .hovgt:hover:before{
+    width: 20%;
+}
+
+.web .contactlist .hovrbx::before{
+    content: 'Send me a message on roblox!';
+    clip-path:margin-box;
+    position: absolute;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    padding-bottom: 5px;
+    margin-left: 40.5%;
+    top: 71.3%;
+    left: 0;
+    width: 0;
+    height: 20px;
+    background: #5873e2;
+    transition: 1s;
+}
+
+.web .contactlist .hovrbx:hover:before{
+    width: 20%;
+}
+
+.web .contactlist .hovdis::before{
+    content: 'Join discord! (Work in progress)';
+    clip-path:margin-box;
+    position: absolute;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    padding-bottom: 5px;
+    margin-left: 40.5%;
+    top: 71.3%;
+    left: 0;
+    width: 0;
+    height: 20px;
+    background: #5873e2;
+    transition: 1s;
+}
+
+.web .contactlist .hovdis:hover:before{
+    width: 20%;
 }
