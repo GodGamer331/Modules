@@ -375,8 +375,7 @@ td {
 }
 
 .notice {
-    position: absolute;
-    width: 20%;
+    position: relative;
     border-radius: 5px;
     border-color: #FFF;
     color: #FFF;
