@@ -385,8 +385,7 @@ td {
 }
 
 .notice .headr {
-    border-style: solid;
-    border-color: #fc9003;
+    border-bottom: 5px solid #fc9003;
     font-weight: 200;
     padding-left: 10px;
 }
