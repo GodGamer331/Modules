@@ -376,7 +376,7 @@ td {
 
 .web .notice {
     position: fixed;
-    width: 20px;
+    width: 20%;
     border-radius: 5px;
-    border-color: #FFF;
+    color: #FFF;
 }
