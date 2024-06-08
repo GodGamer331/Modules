@@ -381,5 +381,5 @@ td {
     border-radius: 5px;
     border-color: #fc9003;
     color: #FFF;
-    background-color: rgb(252, 144, 3 / 50%);
+    background-color: rgba(252, 144, 3, 50%);
 }
