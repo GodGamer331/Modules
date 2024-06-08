@@ -373,3 +373,9 @@ td {
 .web .contactlist .hovdis:hover:before{
     width: 20%;
 }
+
+.web .notice {
+    border-radius: 5px;
+    border-color: #FFF;
+    margin-top: 20px;
+}
