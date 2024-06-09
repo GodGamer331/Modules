@@ -390,3 +390,7 @@ td {
 .notice .body {
     padding-left: 10px;
 }
+
+.notice .slim {
+    height: 3px;
+}
