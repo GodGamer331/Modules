@@ -375,17 +375,14 @@ td {
 }
 
 .notice {
-    width: 35%;
+    width: 65%;
     position: relative;
-    border-style: solid;
-    border-radius: 5px;
-    border-color: #fc9003;
+    border-left: 5px solid #fc9003;
     color: #FFF;
     background-color: rgba(252, 144, 3, 30%);
 }
 
 .notice .headr {
-    border-bottom: 5px solid #fc9003;
     font-weight: 200;
     padding-left: 10px;
 }
