@@ -377,9 +377,9 @@ td {
 .notice {
     width: 65%;
     position: relative;
-    border-left: 5px solid #fc9003;
+    border-left: 5px solid #76c949;
     color: #FFF;
-    background-color: rgba(252, 144, 3, 30%);
+    background-color: rgba(118, 201, 73, 30%);
 }
 
 .notice .headr {
