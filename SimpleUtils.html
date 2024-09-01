@@ -42,6 +42,7 @@
                 </header>
                 <a href="#simpleutils">Simple Utils</a><br>
                 <a href="#converttime" class="subcat">ConvertTime</a><br>
+                <a href="#dragger" class="subcat">Dragger</a><br>
                 <a href="#gates" class="subcat">Gates</a><br>
                 <a href="#getdescendantsof" class="subcat">GetDescendantsOf</a><br>
                 <a href="#getpath" class="subcat">GetPath</a><br>
@@ -93,6 +94,133 @@ local Seconds = 85
 
 print(Utils.ConvertTime(Seconds))   -> "01:25"
 </code></pre>
+<hr>
+<br><br><h3 id="dragger">Dragger</h3>
+This module contains several functions to make UI dragging easier, also allows for making Sliders.
+<h4>new(Settings: {})</h4>
+<table>
+    <tr>
+        <th>Key</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Default</th>
+    </tr>
+    <tr>
+        <td>Settings</td>
+        <td><table>
+            <tr>
+                <th>Key</th>
+                <th>Type</th>
+                <th>Required</th>
+                <th>Default</th>
+            </tr>
+            <tr>
+                <td>DetectionFrame</td>
+                <td>BasePlayerGui</td>
+                <td>true</td>
+                <td>nil</td>
+            </tr>
+            <tr>
+                <td>DragDelay</td>
+                <td>number</td>
+                <td>false</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>MoveFrame</td>
+                <td>BasePlayerGui</td>
+                <td>true</td>
+                <td>nil</td>
+            </tr>
+        </table></td>
+        <td>true</td>
+        <td>nil</td>
+    </tr>
+</table>
+<br><h4>RegDrag()</h4>
+Example Video of how it'll look as well as example code and setup.<br>
+<img src="./videos/Dragger1/ExampleCode.png" width="979" height="177"><br>
+<img src="./videos/Dragger1/ExampleSetup.png" width="128" height="74"><br>
+<video width="600", height="400", controls="controls"><source src="./videos/Dragger1/Dragger1.mp4", type="video/mp4" /></video>
+<br><br>It also allows to limit where the UI can go.<br>
+Example:<br>
+<img src="./videos/Dragger2/ExampleCode.png" width="981" height="218"><br>
+<video width="600", height="400", controls="controls"><source src="./videos/Dragger2/Dragger2.mp4", type="video/mp4" /></video>
+<br><br><h4>RegScale(Frame, ScaleFrame, MinScale)</h4><br>
+<table>
+    <tr>
+        <th>Key</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Default</th>
+    </tr>
+    <tr>
+        <td>Frame</td>
+        <td>BasePlayerGui</td>
+        <td>true</td>
+        <td>nil</td>
+    </tr>
+    <tr>
+        <td>ScaleFrame</td>
+        <td>BasePlayerGui</td>
+        <td>true</td>
+        <td>nil</td>
+    </tr>
+    <tr>
+        <td>MinScale</td>
+        <td>UDim2</td>
+        <td>true</td>
+        <td>nil</td>
+    </tr>
+</table>
+<br>
+This function allows you to scale the UI to its Minimum size, or as big as you want. Below are images and video examples.
+<img src="./videos/Dragger3/ExampleCode.png" width="974" height="369"><br>
+<video width="600", height="400", controls="controls"><source src="./videos/Dragger3/Dragger3.mp4", type="video/mp4" /></video>
+<br><br>
+<h4>LockX() / LockY()</h4>
+This functions will allow the UI to move only in specified directions (X/Y) depending which is locked.<br>
+LockX/Y should be placed BEFORE RegDrag function.<br>
+<br>
+<h4>Sliders</h4>
+Sliders require either LockX or LockY to be enabled. It is made from RegDrag function, where you add additional options:
+<table>
+    <tr>
+        <th>Key</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Default</th>
+    </tr>
+    <tr>
+        <td>Slider</td>
+        <td><table>
+            <tr>
+                <th>Key</th>
+                <th>Type</th>
+                <th>Required</th>
+                <th>Default/Description</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>boolean</td>
+                <td>false</td>
+                <td>Default: false<br>Description: Wether or not to make it a slider.</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>BasePlayerGui</td>
+                <td>true</td>
+                <td>Default: nil<br>Description: Parent instance of the dragger.</td>
+            </tr>
+        </table></td>
+        <td>false</td>
+        <td>nil</td>
+    </tr>
+</table>
+Example Code and video:<br>
+<img src="./videos/Dragger5/ExampleCode.png" width="1339" height="574"><br>
+<img src="./videos/Dragger5/ExampleSetup.png" width="155" height="162"><br>
+<video width="600", height="400", controls="controls"><source src="./videos/Dragger5/Dragger5.mp4", type="video/mp4" /></video>
 <hr>
 <br><br><h3 id="gates">Gates</h3>
 This function includes several logic gates you may use as well as :GetTruthTable();
